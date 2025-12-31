@@ -17,3 +17,18 @@ result = towerOfHanoiBrute(N, 'A', 'C', 'B')
 
 for move in result:
     print(move)
+
+
+#Optimized approach
+def towerOfHanoiOptimized(N, from_rod, to_rod, aux_rod):
+    if N == 0:
+        return
+    towerOfHanoiOptimized(N - 1, from_rod, aux_rod, to_rod)
+    print(f"Disk {N} moved from {from_rod} to {to_rod}")
+    towerOfHanoiOptimized(N - 1, aux_rod, to_rod, from_rod)
+
+
+N = int(input("Enter number of disks: "))
+
+towerOfHanoiOptimized(N, 'A', 'C', 'B')
+
