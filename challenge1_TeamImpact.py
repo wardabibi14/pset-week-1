@@ -11,3 +11,22 @@ def TeamImpact(contributions):
     return impact 
 contributions = list(map(int, input("contributions = ").split()))
 print(TeamImpact(contributions))
+
+
+
+#optimizd approach
+def team_impact_optimized(contributions):
+    n = len(contributions)
+    impact = [1] * n
+    left_product = 1
+    for i in range(n):
+        impact[i] = left_product
+        left_product *= contributions[i]
+    right_product = 1
+    for i in reversed(range(n)):
+        impact[i] *= right_product
+        right_product *= contributions[i]
+    
+    return impact
+contributions = list(map(int, input("contributions = ").split()))
+print(TeamImpact(contributions))
